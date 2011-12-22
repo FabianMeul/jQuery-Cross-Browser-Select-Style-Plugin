@@ -2,7 +2,7 @@
     $.fn.selectFix = function (options) {
         $(this).each(function () {
 
-            var settings = $.extend({ 'extraStyles': true, 'arrow': true, 'arrowWidth': 20, 'arrowContent': '', 'className': 'select', 'classText': 'text', 'classArrow': 'arrow', 'classFocus': 'focused', 'classEnd': 'selected' }, options);
+            var settings = $.extend({ 'extraStyles': true, 'responsive': false, 'arrow': true, 'arrowWidth': 20, 'arrowContent': '', 'className': 'select', 'classText': 'text', 'classArrow': 'arrow', 'classFocus': 'focused', 'classEnd': 'selected' }, options);
 
             var className = "." + settings.className;
             var selectField = $(this);
@@ -16,21 +16,29 @@
 
             var height = selectField.css("height").replace("px", "");
             var width = selectField.css("width").replace("px", "");
+            var widthPercent;
+
+            if (settings.responsive) {
+                widthPercent = (100 * parseInt(width.replace("px", "")) / parseInt(selectField.parent().css('width').replace("px", ""))) + '%';
+            } else {
+                widthPercent = width + "px";
+            }
+
+            console.log(widthPercent);
 
             var arrow;
             var arrowWidth = String(settings.arrowWidth);
 
-            if (arrowWidth.indexOf('px') < 0 && arrowWidth.indexOf('%')<0) {
-                arrowWidth = arrowWidth+"px";
+            if (arrowWidth.indexOf('px') < 0 && arrowWidth.indexOf('%') < 0) {
+                arrowWidth = arrowWidth + "px";
             }
-            console.log(arrowWidth);
             if (settings.arrow == true) {
                 arrow = "<span style=\"display: block; height: " + height + "px; position: absolute; right: 0; width: " + arrowWidth + ";\" class=\"" + settings.classArrow + "\">" + settings.arrowContent + "</span>";
             } else {
                 arrow = "";
             }
 
-            selectField.css({ "left": 0, "position": "absolute", "top": 0, "z-index": 1 }).wrap("<div class=\"" + settings.className + "\"style=\"overflow: hidden; position: relative; height: " + height + "px; width: " + width + "px;\"></div>").closest(className).append("<div class=\"select\"style=\"height: " + height + "px; left: 0; position: absolute; top: 0; width: " + width + "px; z-index: 0;\"><span style=\"display: block;  left: 0; line-height:" + height + "px; position: absolute; top: 0; width: " + width + "px;\" class=\"" + settings.classText + "\">" + initVal + "</span>" + arrow + "</div>");
+            selectField.css({ "left": 0, "position": "absolute", "top": 0, "z-index": 1 }).wrap("<div class=\"" + settings.className + "\"style=\"overflow: hidden; position: relative; height: " + height + "px; width: " + widthPercent + ";\"></div>").closest(className).append("<div class=\"select\"style=\"height: " + height + "px; left: 0; position: absolute; top: 0; width: 100%; z-index: 0;\"><span style=\"display: block;  left: 0; line-height:" + height + "px; position: absolute; top: 0; width: 100%;\" class=\"" + settings.classText + "\">" + initVal + "</span>" + arrow + "</div>");
             selectField.closest("select").css({ "opacity": 0, "width": width });
 
             selectField.bind({

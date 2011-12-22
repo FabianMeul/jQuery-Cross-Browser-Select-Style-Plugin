@@ -67,8 +67,11 @@
             box-shadow: 1px 1px 4px #222;
             font-size: 1.4em;
             height: 40px;
-            text-indent: 2.293577981651376%;
             width: 46.72466734902764%;
+        }
+        .text 
+        {            
+            text-indent: 2.293577981651376%;
         }
         form .select:first-child
         {
@@ -104,8 +107,8 @@
     </style>
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#KevinMack").selectFix({ arrowWidth: '10%', arrowContent: '&raquo;' });
-            $("#ExampleWhaaaaaaaaaaaaaaat").selectFix({ arrowWidth: '10%', arrowContent: '-' });
+            $("#KevinMack").selectFix({ arrowWidth: '10%', arrowContent: '&raquo;', responsive: true });
+            $("#ExampleWhaaaaaaaaaaaaaaat").selectFix({ arrowWidth: '10%', arrowContent: '-', responsive: true });
         });
     </script>
 </head>
