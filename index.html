@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <title>Cross Browser Select Fix Plugin - Easy Lite Solution for Styling Select Boxes</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="select.min.js"></script>
+    <link rel="Stylesheet" type="text/css" href="styles.css" />
+    <!-- Started Thursday, December 22, 2011 -->
+    <!-- Last Updated Thursday, December 22, 2011 -->
+    <style type="text/css">
+        /*general styling for demo not part of plugin*/
+        *
+        {
+            font-family: Arial;
+            font-size: 100%:;
+        }
+        body
+        {
+            background-color: #111;
+            padding: 2.051282051282051% 0;
+        }
+        body > div
+        {
+            -moz-border-radius: 15px;
+            -moz-box-shadow: 1px 1px 20px #000;
+            -webkit-box-shadow: 1px 1px 20px #000;
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 15px;
+            box-shadow: 1px 1px 20px #000;
+            margin: 0 auto;
+            width: 90%;
+        }
+        h1
+        {
+            color: #D6E9AE;
+            line-height: 1em;
+            letter-spacing: -0.05em;
+            font-size: 3em;
+            font-weight: normal;
+            margin: 2.051282051282051% 0 2.051282051282051% 2.051282051282051%;
+            margin: 0 auto;
+            text-align: center;
+            width: 90%;
+        }
+        h1 span
+        {
+            color: #C3E972;
+            font-weight: bold;
+        }
+        form
+        {
+            display: block;
+            padding: 2.051282051282051% 0 2.051282051282051% 2.051282051282051%;
+            overflow: hidden;
+        }
+        .select
+        {
+            float: left;
+            -moz-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 4px #222;
+            -webkit-box-shadow: 1px 1px 4px #222;
+            border: 1px solid #222;
+            border-radius: 5px;
+            box-shadow: 1px 1px 4px #222;
+            font-size: 1.4em;
+            height: 40px;
+            text-indent: 2.293577981651376%;
+            width: 46.72466734902764%;
+        }
+        form .select:first-child
+        {
+            margin-right: 2.051282051282051%;
+        }
+        p
+        {
+            color: #E4AACC;
+            display: block;
+            font-size: .8em;
+            padding: 2.051282051282051% 0 2.051282051282051% 2.051282051282051%;
+            margin: 0;
+            text-align: right;
+            width: 90%;
+        }
+        @media screen and (max-width: 500px)
+        {
+            input
+            {
+                margin: 0 0 2.051282051282051% 0;
+                width: 95.93951347797502%;
+            }
+            .important
+            {
+                margin: 0 !important;
+            }
+        }
+        .arrow 
+        {
+            text-align: center;
+        }
+        
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#KevinMack").selectFix({ arrowWidth: '10%', arrowContent: '&raquo;' });
+            $("#ExampleWhaaaaaaaaaaaaaaat").selectFix({ arrowWidth: '10%', arrowContent: '-' });
+        });
+    </script>
+</head>
+<body>
+    <h1>
+        <span>jQuery</span> Cross Browser Select Style Plugin
+    </h1>
+    <div>
+        <form action="#" method="post">
+        <select id="KevinMack" name="KevinMack">
+            <option value="">Select</option>
+            <option value="1">Partying</option>
+            <option value="2">Pizza</option>
+            <option value="3">Quesadillas</option>
+            <option value="4">Computers</option>
+            <option value="5">Dancing</option>
+        </select>
+        <select id="ExampleWhaaaaaaaaaaaaaaat" name="ExampleWhaaaaaaaaaaaaaaat">
+            <option value="">Select</option>
+            <option value="1">Daniel Johnston</option>
+            <option value="2">Alkaline Trio</option>
+            <option value="3">Andrew Jackson Jihad</option>
+            <option value="4" selected="selected">The Smiths</option>
+            <option value="5">Morrissey</option>
+            <option value="5">Joe Camerlengo</option>
+        </select>
+        </form>
+    </div>     
+    <p>
+        Created by Kevin Mack
+    </p>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27814517-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

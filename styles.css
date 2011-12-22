@@ -1,0 +1,15 @@
+﻿select 
+{    
+    height: 40px;
+    width: 46.72466734902764%;
+}
+.select 
+{
+    background-color: #FFF;
+    color: #222; /*default styling of input*/
+}
+.arrow 
+{
+    background-color: #E4AACC;
+    border-left: 1px solid #000;  
+}
