@@ -13,3 +13,12 @@
     background-color: #E4AACC;
     border-left: 1px solid #000;
 }
+<<<<<<< HEAD
+=======
+
+select, .select, .text 
+{
+    display: block;
+    line-height: 40px;
+}
+>>>>>>> d6aab1dc813486086db22dfa34a615c0aacd4dba
