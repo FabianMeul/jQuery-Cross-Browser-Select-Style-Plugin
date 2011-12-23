@@ -6,6 +6,9 @@
 
             var className = "." + settings.className;
             var selectField = $(this);
+
+            selectField.css('-webkit-appearance', 'none'); //mac OS bug fix on webkit render
+
             var initVal;
             if (selectField.children("option:selected").size() > 0) {
                 initVal = selectField.children("option:selected").eq(0).text();
@@ -13,7 +16,7 @@
                 initVal = selectField.children("option").eq(0).text();
             }
 
-            var height = selectField.height();
+            var height = selectField.css("height");
             var width = selectField.css("width").replace("px", "");
             var widthPercent;
 
@@ -31,19 +34,17 @@
                 arrowWidth = arrowWidth + "px";
             }
             if (settings.arrow == true) {
-                arrow = "<span style=\"display: block; height: " + height + "px; position: absolute; right: 0; width: " + arrowWidth + ";\" class=\"" + settings.classArrow + "\">" + settings.arrowContent + "</span>";
+                arrow = "<span style=\"display: block; height: 100%; position: absolute; right: 0; width: " + arrowWidth + ";\" class=\"" + settings.classArrow + "\">" + settings.arrowContent + "</span>";
             } else {
                 arrow = "";
             }
 
 
-            selectField.css({ "height": height + "px", "left": 0, "line-height": height + "px", "position": "absolute", "top": 0, "z-index": 1 }).wrap("<div class=\"" + settings.className + "\"style=\"overflow: hidden; position: relative; height: " + height + "px; line-height: " + height + "px; width: " + widthPercent + ";\"></div>").closest(className).append("<div class=\"select\"style=\"height: " + height + "px; left: 0; line-height:" + height + "px; position: absolute; top: 0; width: 100%; z-index: 0;\"><span style=\"display: block; left: 0; height: " + height + "px; line-height:" + height + "px; position: absolute; top: 0; width: 100%;\" class=\"" + settings.classText + "\">" + initVal + "</span>" + arrow + "</div>");
-            selectField.css({ "height": height + "px", "display": "block", "opacity": 0, "line-height": height + "px" });
-
+            selectField.css({ "display": "block", "left": 0, "opacity": 0, "position": "absolute", "top": 0, "z-index": 1 }).wrap("<div class=\"" + settings.className + "\"style=\"overflow: hidden; position: relative;  width: " + widthPercent + ";\"></div>").closest(className).append("<span style=\"display: block; left: 0; height: " + height + "; line-height: inherit; position: absolute; top: 0; width: 100%;\" class=\"" + settings.classText + "\">" + initVal + "</span>" + arrow);
 
             selectField.bind({
                 change: function () {
-                    selectField.siblings(className).children("." + settings.classText).html(selectField.children("option[value=" + selectField.val() + "]").text());
+                    selectField.siblings("." + settings.classText).html(selectField.children("option[value=" + selectField.val() + "]").text());
                     if (settings.extraStyles == true) {
                         selectField.parent(className).addClass(settings.classEnd).removeClass(settings.classFocus); //optional styling to be used once a selection has been made
                     }
@@ -64,7 +65,7 @@
             });
 
 
-            selectField.after("<style type=\"text/css\">." + settings.className+" select {width: 100%;}</style>");
+            selectField.after("<style type=\"text/css\">." + settings.className + " select {width: 100%;}</style>");
 
         });
     }

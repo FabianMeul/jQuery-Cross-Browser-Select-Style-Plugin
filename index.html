@@ -8,7 +8,7 @@
     <script type="text/javascript" src="select.min.js"></script>
     <link rel="Stylesheet" type="text/css" href="styles.css" />
     <!-- Started Thursday, December 22, 2011 -->
-    <!-- Last Updated Thursday, December 22, 2011 -->
+    <!-- Last Updated Friday, December 23, 2011 -->
     <style type="text/css">
         /*general styling for demo not part of plugin*/
         *
@@ -79,13 +79,37 @@
         }
         p
         {
-            color: #E4AACC;
+            color: #D6E9AE;
             display: block;
-            font-size: .8em;
+            font-size: 1em;
             padding: 2.051282051282051% 0 2.051282051282051% 2.051282051282051%;
             margin: 0;
+            width: 90%;
+        }
+        p b 
+        {
+            color: #C3E972;
+        }
+        body > p
+        {
+            color: #E4AACC;
+            font-size: .8em;
             text-align: right;
             width: 90%;
+        }
+        body > p a 
+        {
+            color: #D6E9AE;
+            text-decoration: none;
+        }
+        body > p a:hover
+        {
+            text-decoration: underline;
+        }
+        p i 
+        {
+            display: block;
+            font-size: .8em;
         }
         @media screen and (max-width: 500px)
         {
@@ -101,9 +125,23 @@
         }
         .arrow 
         {
+            line-height: 40px;
             text-align: center;
         }
-        
+        body > a 
+        {
+            color: #D6E9AE;
+            display: block;
+            line-height: 1em;
+            letter-spacing: -0.05em;
+            font-size: 1.5em;
+            font-weight: normal;
+            margin: 2.051282051282051% 0 2.051282051282051% 2.051282051282051%;
+            margin: 0 auto;
+            text-align: center;
+            text-decoration: none;
+            width: 90%;
+        }
     </style>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -133,12 +171,21 @@
             <option value="3">Andrew Jackson Jihad</option>
             <option value="4" selected="selected">The Smiths</option>
             <option value="5">Morrissey</option>
-            <option value="5">Joe Camerlengo</option>
+            <option value="6">Joe Camerlengo</option>
         </select>
         </form>
+        <p>
+            <b>TESTED IN</b>: IE7, IE8, IE9, Chrome (Mac/PC), Safari (Mac/PC), FireFox 3.62 (PC), FireFox 7 (Mac), FireFox 8 (PC)
+        </p>
     </div>     
+    <a href="selectFix.zip">
+        Download Zip &raquo;
+    </a>
     <p>
-        Created by Kevin Mack
+        Created by <a href="http://www.fb.com/kevinmack" target="_blank">Kevin Mack</a>
+        <i>
+            and special thanks to Jesse Frye!
+        </i>
     </p>
     <script type="text/javascript">
 
