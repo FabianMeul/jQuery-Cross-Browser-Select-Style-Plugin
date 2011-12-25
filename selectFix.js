@@ -1,8 +1,13 @@
+/*/////////////////////////////////////////////////////////////////////////////////
+VERSION 1.1 - Updated Decemember 24, 2011
+CREATED BY KEVIN MACK
+DETAILS: http://http://nicetransition.com/_plugins/jQuery-Cross-Browser-Select-Fix 
+//////////////////////////////////////////////////////////////////////////////////*/
 (function ($) {
     $.fn.selectFix = function (options) {
         $(this).each(function () {
 
-            var settings = $.extend({ 'extraStyles': true, 'responsive': false, 'arrow': true, 'arrowWidth': 20, 'arrowContent': '', 'className': 'select', 'classText': 'text', 'classArrow': 'arrow', 'classFocus': 'focused', 'classEnd': 'selected' }, options);
+            var settings = $.extend({ 'extraStyles': true, 'responsive': false, 'arrow': true, 'arrowWidth': 20, 'arrowContent': '', 'className': 'select', 'classText': 'text', 'classArrow': 'arrow', 'classFocus': 'focused', 'classEnd': 'selected', 'display': 'inline-block' }, options);
 
             var className = "." + settings.className;
             var selectField = $(this);
@@ -40,7 +45,7 @@
             }
 
 
-            selectField.css({ "display": "block", "left": 0, "opacity": 0, "position": "absolute", "top": 0, "z-index": 1 }).wrap("<div class=\"" + settings.className + "\"style=\"overflow: hidden; position: relative;  width: " + widthPercent + ";\"></div>").closest(className).append("<span style=\"display: block; left: 0; height: " + height + "; line-height: inherit; position: absolute; top: 0; width: 100%;\" class=\"" + settings.classText + "\">" + initVal + "</span>" + arrow);
+            selectField.css({ "display": "block", "left": 0, "opacity": 0, "position": "absolute", "top": 0, "z-index": 1 }).wrap("<div class=\"" + settings.className + "\"style=\"overflow: hidden; display: " + settings.display + "; position: relative;  width: " + widthPercent + ";\"></div>").closest(className).append("<span style=\"display: block; left: 0; height: " + height + "; line-height: inherit; position: absolute; top: 0; width: 100%;\" class=\"" + settings.classText + "\">" + initVal + "</span>" + arrow);
 
             selectField.bind({
                 change: function () {
