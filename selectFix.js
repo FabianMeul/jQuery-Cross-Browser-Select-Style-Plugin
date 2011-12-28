@@ -1,5 +1,5 @@
 /*/////////////////////////////////////////////////////////////////////////////////
-VERSION 1.1 - Updated Decemember 24, 2011
+VERSION 1.2 - Updated Decemember 28, 2011
 CREATED BY KEVIN MACK
 DETAILS: http://http://nicetransition.com/_plugins/jQuery-Cross-Browser-Select-Fix 
 //////////////////////////////////////////////////////////////////////////////////*/
@@ -12,7 +12,7 @@ DETAILS: http://http://nicetransition.com/_plugins/jQuery-Cross-Browser-Select-F
             var className = "." + settings.className;
             var selectField = $(this);
 
-            selectField.css('-webkit-appearance', 'none'); //mac OS bug fix on webkit render
+            selectField.css({ '-webkit-appearance': 'none', 'box-sizing': 'border-box', '-moz-box-sizing': 'border-box', '-webkit-box-sizing': 'border-box', 'cursor': 'pointer' }); //mac OS bug fix on webkit render
 
             var initVal;
             if (selectField.children("option:selected").size() > 0) {
@@ -62,6 +62,11 @@ DETAILS: http://http://nicetransition.com/_plugins/jQuery-Cross-Browser-Select-F
                         selectField.parent(className).addClass(settings.classFocus);
                     }
                 },
+                click: function () {
+                    if (settings.extraStyles == true) {
+                        selectField.parent(className).addClass(settings.classFocus);
+                    }
+                },
                 blur: function () {
                     if (settings.extraStyles == true) {
                         selectField.parent(className).removeClass(settings.classFocus);
@@ -69,8 +74,9 @@ DETAILS: http://http://nicetransition.com/_plugins/jQuery-Cross-Browser-Select-F
                 }
             });
 
-
-            selectField.after("<style type=\"text/css\">." + settings.className + " select {width: 100%;}</style>");
+            if ($(".stlyesFor" + settings.className).size() < 1) {
+                selectField.after("<style type=\"text/css\" class=\"stlyesFor" + settings.className + "\">." + settings.className + " select {width: 100%;}</style>");
+            }
 
         });
     }
