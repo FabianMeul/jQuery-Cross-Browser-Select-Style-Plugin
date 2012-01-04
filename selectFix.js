@@ -1,7 +1,7 @@
 /*/////////////////////////////////////////////////////////////////////////////////
-VERSION 1.2 - Updated Decemember 28, 2011
+VERSION 1.3 - Updated January 4, 2011
 CREATED BY KEVIN MACK
-DETAILS: http://http://nicetransition.com/_plugins/jQuery-Cross-Browser-Select-Fix 
+DETAILS: http://nicetransition.com/_plugins/jQuery-Cross-Browser-Select-Fix 
 //////////////////////////////////////////////////////////////////////////////////*/
 (function ($) {
     $.fn.selectFix = function (options) {
@@ -31,7 +31,6 @@ DETAILS: http://http://nicetransition.com/_plugins/jQuery-Cross-Browser-Select-F
                 widthPercent = width + "px";
             }
 
-
             var arrow;
             var arrowWidth = String(settings.arrowWidth);
 
@@ -44,11 +43,10 @@ DETAILS: http://http://nicetransition.com/_plugins/jQuery-Cross-Browser-Select-F
                 arrow = "";
             }
 
-
             selectField.css({ "display": "block", "left": 0, "opacity": 0, "position": "absolute", "top": 0, "z-index": 1 }).wrap("<div class=\"" + settings.className + "\"style=\"overflow: hidden; display: " + settings.display + "; position: relative;  width: " + widthPercent + ";\"></div>").closest(className).append("<span style=\"display: block; left: 0; height: " + height + "; line-height: inherit; position: absolute; top: 0; width: 100%;\" class=\"" + settings.classText + "\">" + initVal + "</span>" + arrow);
 
             selectField.bind({
-                change: function () {
+                change: function (event) {
                     selectField.siblings("." + settings.classText).html(selectField.children("option[value=" + selectField.val() + "]").text());
                     if (settings.extraStyles == true) {
                         selectField.parent(className).addClass(settings.classEnd).removeClass(settings.classFocus); //optional styling to be used once a selection has been made
@@ -57,10 +55,13 @@ DETAILS: http://http://nicetransition.com/_plugins/jQuery-Cross-Browser-Select-F
                         selectField.parent(className).removeClass(settings.classEnd);
                     }
                 },
-                focus: function () {
+                focus: function (event) {
                     if (settings.extraStyles == true) {
                         selectField.parent(className).addClass(settings.classFocus);
                     }
+                    selectField.keyup(function () {
+                        selectField.siblings("." + settings.classText).html($(this).children("option:selected").text());                        
+                    });
                 },
                 click: function () {
                     if (settings.extraStyles == true) {
