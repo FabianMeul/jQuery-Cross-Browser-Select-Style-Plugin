@@ -47,7 +47,7 @@ DETAILS: http://nicetransition.com/_plugins/jQuery-Cross-Browser-Select-Fix
 
             selectField.bind({
                 change: function (event) {
-                    selectField.siblings("." + settings.classText).html(selectField.children("option[value=" + selectField.val() + "]").text());
+                    selectField.siblings("." + settings.classText).html(selectField.children("option:contains(" + selectField.val() + ")").text());
                     if (settings.extraStyles == true) {
                         selectField.parent(className).addClass(settings.classEnd).removeClass(settings.classFocus); //optional styling to be used once a selection has been made
                     }
